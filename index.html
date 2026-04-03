@@ -1,0 +1,148 @@
+<header class="main-header">
+    <nav class="navbar">
+        <div class="logo">
+            <span class="gradient-text">PromptHub</span>
+        </div>
+        <div class="nav-links">
+            <a href="#" class="nav-item">Explore</a>
+            <a href="#" class="nav-item">Categories</a>
+            <button class="btn-primary">Submit Prompt</button>
+        </div>
+    </nav>
+</header>
+
+<main class="content-wrapper">
+    <section class="hero-section">
+        <h1 class="hero-title">Unlock Your Creativity with <br><span class="highlight">Perfect AI Prompts</span></h1>
+        <p class="hero-subtitle">Discover thousands of hand-crafted prompts for Midjourney, ChatGPT, and DALL-E</p>
+
+        <div class="search-container">
+            <input type="text" id="mainSearch" placeholder="Search prompts (e.g. 'Cyberpunk City')">
+            <button class="search-btn">Search</button>
+        </div>
+
+        <div class="trending-tags">
+            <span class="tag-label">Trending:</span>
+            <a href="#" class="chip">Cyberpunk</a>
+            <a href="#" class="chip">Interior Design</a>
+            <a href="#" class="chip">Logo Concept</a>
+            <a href="#" class="chip">Anime Style</a>
+        </div>
+    </section>
+
+    <section class="filter-bar">
+        <div class="filter-group">
+            <button class="filter-btn active">All Prompts</button>
+            <button class="filter-btn">Midjourney</button>
+            <button class="filter-btn">DALL-E 3</button>
+            <button class="filter-btn">Stable Diffusion</button>
+        </div>
+    </section>
+
+    <section class="prompts-display">
+        <div class="section-header">
+            <h2 class="section-subtitle">Featured Prompts</h2>
+            <div class="view-options">
+                <span class="view-label">Sort by:</span>
+                <select id="sortOrder">
+                    <option value="newest">Newest First</option>
+                    <option value="popular">Most Popular</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="prompts-grid" id="promptsGrid">
+            <div class="prompt-card" data-category="midjourney">
+                <div class="card-image-wrapper">
+                    <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=600" alt="Cyberpunk" class="card-img">
+                    <div class="card-overlay"><span class="badge">MIDJOURNEY</span></div>
+                </div>
+                <div class="card-content">
+                    <h3 class="card-title">Cyberpunk Neon City</h3>
+                    <p class="card-prompt-text">"A futuristic Tokyo street at night, neon signs, cinematic lighting, 8k."</p>
+                    <div class="card-footer">
+                        <div class="stats"><span>👁️ 1.2k</span><span>❤️ 450</span></div>
+                        <button class="copy-btn" onclick="copyPrompt(this)">Copy Prompt</button>
+                    </div>
+                </div>
+            </div>
+            </div>
+
+        <div id="noResults" class="hidden">
+            <div class="empty-state">
+                <span class="empty-icon">🔍</span>
+                <h3>No prompts found</h3>
+                <p>Try a different search term.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="stats-counter-section">
+        <div class="stats-grid">
+            <div class="stat-item">
+                <span class="stat-number" data-target="1200">0</span>
+                <span class="stat-label">Total Prompts</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number" data-target="4500">0</span>
+                <span class="stat-label">Happy Creators</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number" data-target="8900">0</span>
+                <span class="stat-label">Downloads</span>
+            </div>
+        </div>
+    </section>
+
+    <section class="newsletter-section">
+        <div class="newsletter-card">
+            <h3>Join the Prompt Crafters</h3>
+            <p>Get the latest AI prompts delivered to your inbox.</p>
+            <div class="newsletter-form">
+                <input type="email" placeholder="Enter your email">
+                <button class="newsletter-btn">Subscribe</button>
+            </div>
+        </div>
+    </section>
+</main>
+
+<div id="submitModal" class="modal-overlay hidden">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h2>Share Your Prompt</h2>
+            <button class="close-modal-btn" id="closeModal">×</button>
+        </div>
+        <form id="submissionForm" class="modal-form">
+            <div class="form-group">
+                <label>Prompt Title</label>
+                <input type="text" placeholder="e.g. Samurai Robot" required>
+            </div>
+            <div class="form-group">
+                <label>The Prompt</label>
+                <textarea placeholder="Paste prompt here..." rows="3" required></textarea>
+            </div>
+            <div class="form-group">
+                <label>Image URL</label>
+                <input type="url" placeholder="https://unsplash.com/..." id="imgUrlInput">
+            </div>
+            <div id="imagePreview" class="image-placeholder">
+                <p>Preview will appear here</p>
+            </div>
+            <button type="submit" class="btn-full-gradient">Submit to Gallery</button>
+        </form>
+    </div>
+</div>
+
+<div id="toastContainer" class="toast-wrapper"></div>
+
+<button class="scroll-top" onclick="scrollToTop()">↑</button>
+
+<footer class="site-footer">
+    <div class="footer-top">
+        <div class="footer-brand">
+            <span class="gradient-text">PromptHub</span>
+            <p>© 2026 AI Library Inc.</p>
+        </div>
+    </div>
+  </footer>
+
